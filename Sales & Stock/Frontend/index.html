@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Stock Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <!-- <button id="mode">Dark Mode</button> -->
+
+    <!-- bgvideo -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div id="notificationBox" class="hidden">
+        <p class="list-item"><span>Kurkure</span> is less than 50 in stock!</p>
+    </div>
+
+    <div id="messageBox" >
+        <p id="messagePara"></p>
+    </div>
+
+    <div class="main-container">
+        <!-- navBar -->
+        <nav>
+            <div class="navLeft">Sales & Stock</div>
+            <div class="navCenter">
+                <button class="btn" id="homeBtn">Home</button>
+                <button class="btn" id="salesBtn">Sales</button>
+                <button class="btn" id="inventoryBtn">Inventory</button>
+            </div>
+            <div class="navRight">
+                <span id="displayUsername"></span> <span id="productAlert"><i id="bellIcon" class="fa-solid fa-bell red"></i></span>
+            </div>
+        </nav>
+
+        <main>
+            <button class="btn" id="productInfoBtn">Show Product Details</button>
+            <!-- Home SignUp Page -->
+            <div id="homeSignupPage">
+                <div action="" class="signUpForm">
+                    <input class="inp" type="text" name="username" id="username" placeholder="Enter username">
+                    <input class="inp" type="password" name="password" id="password" placeholder="Enter Password">
+                    <button id="submit" class="btn">Login</button>
+                </div>
+            </div>
+
+            <!-- Home Default Page -->
+            <div id="homeDefaultPage">
+                <h1>Welcome to Sales & Stock Management System</h1>
+                <h4>This web app is your all-in-one system for managing stock and sales. It automatically updates your
+                    inventory when you record a sale, giving you a clear, real-time view of what you have. It's the
+                    simple way to keep your product counts accurate and your business records organized.</h4>
+                    <p>(Monthly Excel Record is updated in your Document's folder)</p>
+                    <p>Designed and devoloped by Team TwoBits</p>
+            </div>
+
+            <!-- inventoryTab -->
+            <div class="" id="inventoryTab">
+                <h2 id="inventoryTabHeading">Enter Product Details:</h2>
+                <!-- salesTab Input fields -->
+                <input id="prodName" class="inp" type="text" placeholder="Enter Product Name">
+                <input id="prodQuantity" class="inp" type="number" placeholder="Enter Quantity">
+                <input id="prodPrice" class="inp" type="number" placeholder="Enter Product Price">
+                <!-- salesTab Buttons -->
+                <div id="inventoryTabButtons">
+                    <div id="addANDremoveBtnsDIV">
+                        <button id="addProdBtn" class="btn">Add Product</button>
+                        <button id="removeProdBtn" class="btn">Remove Product</button>
+                    </div>
+                    <button id="updateProdBtn" class="btn">Update Product Details</button>
+                </div>
+            </div>
+
+            <!-- salesTab -->
+            <div id="salesTab">
+                <h2 id="salesTabHeading">Enter Sales Details:</h2>
+                <!-- salesTab Input fields -->
+                <input id="slsproductNameInp" class="inp" type="text" placeholder="Enter Product Name">
+                <input id="slsquantityInp" class="inp" type="number" placeholder="Enter Quantity">
+                <input id="slspriceInp" class="inp" type="number"
+                    placeholder="Enter Selling Price (if sold at diff rate)">
+                <!-- salesTab Buttons -->
+                <div id="salesTabButtons">
+                    <button id="soldBtn" class="btn">Record Sale</button>
+                    <button id="viewRecordsBtn" class="btn">View Records</button>
+                </div>
+            </div>
+
+            <!-- product info -->
+            <div id="productInfoTab">
+                <h2 style="color: #fff;" id="ProductInfoTabHeading">Find Product Details:</h2>
+                <!-- Product Tab Input fields -->
+                <div id="productInfoBox">
+                    <input id="searchProdName" class="inp" type="text" placeholder="Enter Product Name">
+                    <button id="searchProductBtn">Search</button>
+                </div>
+
+                <div id="productDetailsDiv" class="">
+                    <p>Product: <span id="divProdName">--</span></p>
+                    <p>Price (₹): <span id="divProdprice">--</span></p>
+                    <p>Quantity: <span id="divProdquantity">--</span></p>
+                    <p>Time: <span id="divProdTime">--</span></p>
+                    <p>Date: <span id="divProdDate">--</span></p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

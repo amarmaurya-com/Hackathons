@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* video bg */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90vw;
+    height: 95vh;
+    z-index: -1;
+    object-fit: cover;
+    filter: blur(15px);
+    transform: scale(1.1);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: url("background_image_Hero.jpg") no-repeat center center fixed;
+    background-color: #22222296;
+    backdrop-filter: blur(5px);
+    background-size: cover;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* utils style */
+
+#messageBox {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+    padding: 5px 10px;
+}
+
+.red {
+    background-color: red;
+    border-radius: 50%;
+    width: 1px;
+    height: 1px;
+}
+
+#bellIcon {
+    font-size: 1.2rem;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#notificationBox {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    height: 100%;
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+    overflow: auto;
+}
+
+#notificationBox .list-item {
+    background-color: #4543436e;
+    padding: 5px 10px;
+    border-radius: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.inp {
+    padding: 5px 10px;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: green;
+    color: #fff;
+}
+
+/* show product details */
+#productInfoBtn {
+    position: fixed;
+    top: 80px;
+    right: 10px;
+}
+
+/* nav-bar */
+nav {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.712);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navLeft {
+    font-weight: 600;
+}
+
+.navCenter {
+    background-color: #222;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.navRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* home Signup page*/
+#homeSignupPage {
+    margin-top: 10%;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+#homeSignupPage input {
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 30vw;
+}
+
+#homeSignupPage button {
+    border: 3px solid #ffffff74;
+}
+
+#homeSignupPage button:hover {
+    background-color: rgb(104, 247, 104);
+    color: #000;
+}
+
+#homeDefaultPage {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    gap: 20px;
+    margin-top: 150px;
+    background-color: #0000006a;
+    padding: 20px 40px;
+    border-radius: 0.5rem;
+}
+
+/* Sales Tab */
+#salesTab {
+    /* background-color: #fff; */
+    margin-top: 10%;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    border-radius: 1rem;
+    gap: 20px;
+}
+
+#salesTabHeading {
+    color: #fff;
+}
+
+#salesTab input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+#salesTabButtons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+#salesTabButtons button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+#salesTabButtons button:hover {
+    background-color: rgb(128, 255, 128);
+    color: #000;
+}
+
+/* inventory Tab */
+#inventoryTab {
+    margin-top: 10%;
+    width: 50vw;
+    /* background-color: #fff; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    border-radius: 1rem;
+    gap: 20px;
+}
+
+#inventoryTabHeading {
+    color: #fff;
+}
+
+#inventoryTab input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+#addANDremoveBtnsDIV {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+#inventoryTabButtons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#inventoryTabButtons button {
+    width: 100%;
+    background-color: rgba(0, 128, 0, 0.53);
+    border: #ffffff7b solid;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+#inventoryTabButtons button:hover {
+    background-color: rgb(128, 255, 128);
+    color: #000;
+}
+
+/* Aryan Mishra */
+
+#homeSignupPage {
+    width: 50vw;
+    margin: auto;
+    display: flex;
+}
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signUpForm h3 {
+    padding-bottom: 20px;
+}
+
+.signUpForm #submit {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: green;
+    color: white;
+    font-size: 20;
+    font-weight: 600;
+    box-shadow: 1px 1px 15px #888888;
+}
+
+/* product info tab */
+#productInfoTab {
+    margin-top: 10%;
+    width: 50vw;
+    /* background-color: #fff; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    border-radius: 1rem;
+    gap: 20px;
+}
+
+#productDetailsDiv {
+    width: 100%;
+    color: #fff;
+}
+
+#productInfoBox input {
+    width: 70%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+#productInfoBox button {
+    cursor: pointer;
+    width: 30%;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+#productInfoBox button:hover {
+    background-color: green;
+    color: #fff;
+}
+
+#productDetailsDiv p {
+    display: flex;
+    justify-content: space-between;
+    background-color: #23000096;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+#productInfoBox {
+    width: 100%;
+    background-color: white;
+    display: flex;
+}
