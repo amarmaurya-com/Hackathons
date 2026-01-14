@@ -10,62 +10,56 @@ import org.springframework.stereotype.Service;
 public class UserCredService {
 
     private final UserCredRepo repo;
-    private final BCryptPasswordEncoder passwordEncoder;
+    BCryptPasswordEncoder encoder  = new  BCryptPasswordEncoder(12);
+
 
     // ❌ Remove loggedInUser — it is dangerous (explained below)
 
-    public UserCredService(UserCredRepo repo, BCryptPasswordEncoder passwordEncoder) {
+    public UserCredService(UserCredRepo repo) {
         this.repo = repo;
-        this.passwordEncoder = passwordEncoder;
     }
 
     // LOGIN
-    public ResponseEntity<String> login(String username, String password) {
-
-        UserCred user = repo.findByUsername(username.toLowerCase())
-                .orElse(null);
-
-        if (user == null) {
-            return ResponseEntity.status(404).body("User not found");
-        }
-
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            return ResponseEntity.status(401).body("Invalid password");
-        }
-
-        return ResponseEntity.ok("Login successful");
-    }
-
+//    public ResponseEntity<String> login(String username, String password) {
+//
+//        UserCred user = repo.findByUsername(username.toLowerCase());
+//
+//        if (user == null) {
+//            return ResponseEntity.status(404).body("User not found");
+//        }
+//
+//        if (!passwordEncoder.matches(password, user.getPassword())) {
+//            return ResponseEntity.status(401).body("Invalid password");
+//        }
+//
+//        return ResponseEntity.ok("Login successful");
+//    }
+//
     // LOGOUT (This is meaningless without JWT/session)
     public ResponseEntity<String> logout() {
         return ResponseEntity.ok("Logged out");
     }
 
     // SIGNUP
-    public ResponseEntity<String> signup(String username, String password, String email) {
+    public ResponseEntity<String> signup(UserCred user) {
 
-        try {
-            username = username.toLowerCase();
-
-            if (repo.existsByUsername(username)) {
-                return ResponseEntity.badRequest().body("Username already exists");
-            }
-
-            if (repo.existsByUsername(email.toLowerCase())) {
-                return ResponseEntity.badRequest().body("Email already exists");
-            }
-
-            UserCred user = new UserCred();
-            user.setUsername(username);
-            user.setPassword(passwordEncoder.encode(password));
-            user.setEmail(email);
-
-            repo.save(user);
-
-            return ResponseEntity.ok("Signup successful");
-
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Signup failed: " + e.getMessage());
+        if (user == null) {
+            return ResponseEntity.badRequest().body("User data is missing");
         }
+
+        String username = user.getUsername().toLowerCase();
+        String email = user.getEmail().toLowerCase();
+
+        if (repo.existsByUsername(username)) {
+            return ResponseEntity.badRequest().body("Username already exists");
+        }
+
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(encoder.encode(user.getPassword()));
+
+        repo.save(user);
+
+        return ResponseEntity.ok("Signup successful");
     }
 }
